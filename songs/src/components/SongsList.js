@@ -5,7 +5,6 @@ import Details from './Details';
 class SongsList extends Component {
 
     render() {
-        console.log(this.props);
         return (
             <div>
                 <div>
