@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from "react-redux";
 import { fetchPosts } from "../actions"
+import User from './User';
 
 class PostList extends React.Component {
 
@@ -9,10 +10,11 @@ class PostList extends React.Component {
     }
 
     renderList() {
-        return this.props.posts.map(post => {
-            return <div>
+        return this.props.posts.map((post, idx) => {
+            return <div key={idx} >
                 <h2>{post.title}</h2>
                 <p>{post.body}</p>
+                <User userId={post.userId} />
             </div>
         })
     }
