@@ -19,7 +19,7 @@ function App() {
                     <Route path="/stream/delete" component={StreamDelete} />
                     <Route path="/stream/show" component={StreamShow} />
                 </div>
-            </BrowserRouter>s
+            </BrowserRouter>
         </div >
     );
 }
