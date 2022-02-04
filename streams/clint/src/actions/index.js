@@ -1,6 +1,8 @@
 import streams from '../apis/streams'
 import * as types from "./types"
 
+
+/* ---------------------------- Auth actions ---------------------------- */
 export const signIn = (userId) => {
     return {
         type: types.SIGN_IN,
@@ -14,6 +16,7 @@ export const signOut = () => {
     }
 };
 
+/* -------------------------- streams actions ---------------------------- */
 export const createStream = (formValues) => async (dispatch) => {
     const response = await streams.post('./streams', formValues);
     dispatch({
@@ -41,7 +44,7 @@ export const fetchStream = (id) => async (dispatch) => {
 export const DELETE_STREAM = (id) => async (dispatch) => {
     await streams.delete(`./streams/${id}`);
     dispatch({
-        type: types.FETCH_STREAMS,
+        type: types.DELETE_STREAM,
     })
 };
 
