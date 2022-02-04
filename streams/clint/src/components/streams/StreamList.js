@@ -33,6 +33,14 @@ class StreamList extends React.Component {
 }
 
 const mapStateToProps = (state) => {
+    /* 
+    streams state in the store saved like this"
+    { 
+        1 : { title : 1 , description : 1 },
+        2 : { title : 2 , description : 2 },
+    }
+    that why we need just the values
+    */
     return { streams: Object.values(state.streams) }
 }
 
