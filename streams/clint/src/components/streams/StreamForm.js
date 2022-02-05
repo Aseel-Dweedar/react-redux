@@ -26,7 +26,6 @@ class StreamForm extends Component {
         )
     };
 
-    // formValues from "redux-form"
     onSubmit = (formValues) => {
         this.props.onSubmit(formValues);
     }
@@ -54,12 +53,6 @@ const validate = (formValues) => {
     }
     return errors;
 }
-
-/* ---
- to fix the view for export, create "formWrapped" const 
-so no need for this complected export statement
-export default connect(null, { createStream }) (reduxForm( { form: "StreamForm", validate } ) (StreamForm))
--- */
 
 export default reduxForm(
     { form: "streamForm", validate }

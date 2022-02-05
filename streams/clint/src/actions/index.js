@@ -26,7 +26,7 @@ export const createStream = (formValues) => async (dispatch, getState) => {
     });
 
     // navigate the user automatically to streams list after adding a stream
-    history.push("/")
+    history.push("/");
 };
 
 export const fetchStreams = () => async (dispatch) => {
@@ -53,9 +53,10 @@ export const DELETE_STREAM = (id) => async (dispatch) => {
 };
 
 export const editStream = (id, formValues) => async (dispatch) => {
-    const response = await streams.put(`./streams/${id}`, formValues);
+    const response = await streams.patch(`./streams/${id}`, formValues);
     dispatch({
         type: types.EDIT_STREAM,
         payload: response.data
     })
+    history.push("/");
 };
