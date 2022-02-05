@@ -1,6 +1,6 @@
 import streams from '../apis/streams'
 import * as types from "./types"
-
+import history from '../history';
 
 /* ---------------------------- Auth actions ---------------------------- */
 export const signIn = (userId) => {
@@ -23,7 +23,10 @@ export const createStream = (formValues) => async (dispatch, getState) => {
     dispatch({
         type: types.CREATE_STREAM,
         payload: response.data
-    })
+    });
+
+    // navigate the user automatically to streams list after adding a stream
+    history.push("/")
 };
 
 export const fetchStreams = () => async (dispatch) => {

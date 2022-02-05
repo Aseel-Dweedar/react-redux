@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import { Field, reduxForm } from "redux-form"
-import { connect } from "react-redux";
-import { createStream } from "../../actions"
-class StreamCreate extends Component {
+
+class StreamForm extends Component {
 
     // render error message handler, just if field not touched and empty (params from mete - Field component)
     renderError = ({ error, touched }) => {
@@ -29,7 +28,7 @@ class StreamCreate extends Component {
 
     // formValues from "redux-form"
     onSubmit = (formValues) => {
-        this.props.createStream(formValues);
+        this.props.onSubmit(formValues);
     }
 
     render() {
@@ -59,11 +58,9 @@ const validate = (formValues) => {
 /* ---
  to fix the view for export, create "formWrapped" const 
 so no need for this complected export statement
-export default connect(null, { createStream }) (reduxForm( { form: "streamCreate", validate } ) (StreamCreate))
+export default connect(null, { createStream }) (reduxForm( { form: "StreamForm", validate } ) (StreamForm))
 -- */
 
-const formWrapped = reduxForm(
-    { form: "streamCreate", validate }
-)(StreamCreate);
-
-export default connect(null, { createStream })(formWrapped)
+export default reduxForm(
+    { form: "streamForm", validate }
+)(StreamForm);
