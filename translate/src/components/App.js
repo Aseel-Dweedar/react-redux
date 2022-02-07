@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import UserCreate from './UserCreate';
+import LanguageContext from '../contexts/LanguageContext';
 export class App extends Component {
 
     state = { language: "english" };
@@ -16,7 +17,13 @@ export class App extends Component {
                     <i className='flag us' onClick={() => this.onLanguageChange("english")} />
                     <i className='flag nl' onClick={() => this.onLanguageChange("dutch")} />
                 </div>
-                <UserCreate />
+
+                {/* Provider is a react component created automatically by react system its a property for context object */}
+                {/* Provider value is responsible for updating the default value for context object */}
+                <LanguageContext.Provider value={this.state.language}>
+                    <UserCreate />
+                </LanguageContext.Provider>
+
             </div>
         );
     }
