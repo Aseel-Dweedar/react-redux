@@ -5,10 +5,12 @@ const Details = ({ song }) => {
     if (!song) {
         return <div>SELECT A SONG</div>
     }
-    return <div>
-        <h1>{song.title}</h1>
-        <p>{song.duration}</p>
-    </div>;
+    return (
+        <div>
+            <h1>{song.title}</h1>
+            <p>{song.duration}</p>
+        </div>
+    );
 }
 
 const mapStateToProps = (state) => {
